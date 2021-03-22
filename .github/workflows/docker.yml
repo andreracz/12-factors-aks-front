@@ -57,6 +57,3 @@ jobs:
         --set image.tag=${{ github.sha }}
         --set configs.TODO_URL="${{ secrets.TODO_URL }}"
         --set service.ingressPath="${{ secrets.INGRESS_PATH }}"
-            
-        
-    
