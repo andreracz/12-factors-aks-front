@@ -33,7 +33,7 @@ jobs:
           cluster-name: techbeeraks
           resource-group: 12-factors
     - run: >
-        helm upgrade todo-microservices ./helm -i --atomic -n ${{ secrets.NAMESPACE }}
+        helm upgrade todo-front ./helm -i --atomic -n ${{ secrets.NAMESPACE }}
         --set image.repository=${{ secrets.CONTAINER_REGISTRY }}/aks-12-factor-front
         --set image.tag=${{ github.sha }}
         --set configs.TODO_URL="${{ secrets.TODO_URL }}"
