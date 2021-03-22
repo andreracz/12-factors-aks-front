@@ -7,7 +7,7 @@ COPY package.json /app/
 RUN npm install
 COPY ./ /app/
 ARG env=prod
-RUN npm run build --bh ./
+RUN npm run build:relative
 RUN ./replace-vars.sh
 
 
