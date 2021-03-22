@@ -1,10 +1,17 @@
-FROM node:14 as build
+FROM node:14-alpine as build
+RUN apk add jq
 WORKDIR /app
+COPY ./scripts/replace-vars.sh ./replace-vars.sh
+RUN ["chmod", "+x", "./replace-vars.sh"]
 COPY package.json /app/
 RUN npm install
 COPY ./ /app/
 ARG env=prod
 RUN npm run build
+RUN ./replace-vars.sh
+
+
+
 
 FROM nginx:1.19-alpine as final
 

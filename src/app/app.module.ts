@@ -13,7 +13,7 @@ interface TodoConfig {
 }
 
 export function getTodoUrl(client: HttpClient): Observable<string> {
-    return map<TodoConfig, string>(x => x.todoUrl)(client.get<TodoConfig>('/assets/config.json'));
+    return map<TodoConfig, string>(x => x.todoUrl)(client.get<TodoConfig>('assets/config.json'));
 }
 
 

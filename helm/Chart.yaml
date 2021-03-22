@@ -1,0 +1,9 @@
+apiVersion: v1
+version: 0.0.1
+appVersion: 0.0.1
+name: aks-12-factor-front
+engine: gotpl
+description: Front-end Helm chart for Kubernetes
+maintainers:
+- email: andre.racz@avanade.com
+  name: Andre Racz
