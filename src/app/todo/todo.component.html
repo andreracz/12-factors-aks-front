@@ -1,0 +1,38 @@
+
+<h2>Todo List</h2>
+
+<div><button (click)="newTodo()">Novo</button></div>
+<ul class="todos">
+	<li *ngFor="let todo of todos" (click)="onSelect(todo)" 
+	[class.completed]="todo.complete"
+	[class.selected]="todo === selectedTodo">	
+		<span class="badge">{{todo.id}}&nbsp;</span> {{todo.title}}
+	</li>
+</ul>
+
+<div *ngIf="selectedTodo">
+	<h3>{{selectedTodo.title}}</h3>
+
+	<div>
+		<label for="id">Id:</label>
+		{{selectedTodo.id}}
+	</div>
+	<div>
+		<label for="title">Title:</label>
+		<input name="title"[(ngModel)]="selectedTodo.title" placeholder="title" type="text">
+	</div>
+	<div>
+		<label for="description">Description:</label>
+		<textarea name="description"[(ngModel)]="selectedTodo.description" placeholder="description"></textarea>
+	</div>
+	<div>
+		<label for="description">Category:</label>
+		<input name="description"[(ngModel)]="selectedTodo.category" placeholder="category" type="text">
+	</div>	
+	<div>
+		<label for="complete">Completed:</label>
+		<input name="complete"[(ngModel)]="selectedTodo.complete" placeholder="complete" type="checkbox">
+	</div>
+	<div><button (click)="save()">Salvar</button></div>
+
+</div>
